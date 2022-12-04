@@ -1,0 +1,50 @@
+﻿@using Microsoft.Extensions.Localization
+@using ShortLinkService.Web.Controllers
+@inject IStringLocalizer<MainController> Localizer
+
+<html>
+    <head>
+        <link rel="icon" href="https://ssl.gstatic.com/translate/favicon.ico">
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <script src="~/js/Index.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    </head>
+
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-8">
+                <div id="inpForm">
+                    <h1 id="header">ShortLink Service</h1>
+                    <div class="tab">
+                        <p>
+                            <input placeholder="Link..." id="link-inp">
+                        </p>
+                    </div>
+                    <div class="tab">
+                        <div id="codeForm" class="text-center">
+                            <img class="border" id="code-contaider-img" src="" />
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <p>
+                            @Localizer["SiteDescription"]
+                        </p>
+                        <p>
+                            @Localizer["Instruction"]
+                        </p>
+                    </div>
+                    <div class="tab">
+                        <button class="btn btn-success" id="create-aliase-btn">Click</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>
+<script>
+    $(document).ready(()=>{
+        $('#create-aliase-btn').click(()=>createAliase());
+    });
+</script>
